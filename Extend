@@ -1,0 +1,25 @@
+package f01; //继承练习
+class A201{ //最高的父类
+	public A201(){
+		return;  //这是一个无参数构造方法，在这里可以return一个空值
+	};
+	
+}
+class A2011 extends A201{
+	//继承了父类的2011
+	public A2011(){
+		super();  //一旦继承父类的方法，子类在调用的时候会默认先执行父类的空参方法
+		         //默认会带super();
+	}
+}
+
+
+public class A20 {
+	//主类 main方法在这
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
