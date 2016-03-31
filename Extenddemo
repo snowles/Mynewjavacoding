@@ -5,8 +5,8 @@ class A201{ //最高的父类
 		         //如果子类是带参数构造方法，父类却没有会报错。
 		         //子类访问父类无参构造意义是初始化父类变量，如果子类不访问就不会初始化，所以会报错
 	}
-	int age;
-	String name;
+	private int age;          //这里是用的private关键字，不加的话子类可以直接调用 无需用get方法调用
+	private String name;
 	public int getAge(){
 		return age;
 	}
