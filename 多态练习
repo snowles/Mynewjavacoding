@@ -1,0 +1,41 @@
+package f01;
+class A211{
+	public void sleep(){
+		System.out.println("A211 Sleep");
+	}
+}
+class A2111 extends A211{
+	public void sleep(){
+		System.out.println("A2111 Sleep");
+	}
+	public void eat(){
+		System.out.println("A2111 eat");
+	}
+}
+class A2112 extends A211{
+	public void sleep(){
+		System.out.println("A2112 Sleep");
+	}
+	public void play(){
+		System.out.println("A2112 play");
+	}
+}
+public class A21 {
+
+	public static void main(String[] args) {
+		// 多态继承
+		A211 a=new A2111();
+		a.sleep();
+		//子类只能使用父类里面有的,如果想使用子类特有方法就必须转换
+		A2111 aa=(A2111) a;
+		aa.sleep();
+		aa.eat();
+		A211 b=new A2112();
+		b.sleep();
+		A2112 bb=(A2112)b;
+		bb.sleep();
+		bb.play();
+
+	}
+
+}
