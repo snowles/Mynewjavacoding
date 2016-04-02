@@ -1,62 +1,4 @@
 package f01;
-class A201{ //最高的父类
-	public A201(){
-		return;  //这是一个无参数构造方法，在这里可以return一个空值
-		         //如果子类是带参数构造方法，父类却没有会报错。
-		         //子类访问父类无参构造意义是初始化父类变量，如果子类不访问就不会初始化，所以会报错
-	}
-	private int age;          //这里是用的private关键字，不加的话子类可以直接调用 无需用get方法调用
-	private String name;
-	public int getAge(){
-		return age;
-	}
-	public String getName(){
-		return name;         //括号里没有name,那么就没有this
-	}
-	public void setAge(int age){
-		this.age=age;
-	}
-	public void setName(String name){
-		this.name=name;
-	}
-	public A201(int age,String name){
-		this.age=age;
-		this.name=name;
-	}
-}
-class A2011 extends A201{
-	//继承了父类的2011
-	public A2011(){
-		//super();  //一旦继承父类的方法，子类在调用的时候会默认先执行父类的空参方法
-		         //默认会带super();
-	}
-}
-class A2012 extends A201{
-	public A2012(int age,String name){
-		super(age,name);
-	};
-	
-} //这里什么都可以不用写，直接用A201的即可，但是如果要调用父类的构造方法，就要在这里使用super
-
-
-public class A20 {
-	//主类 main方法在这
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		A2011 a1=new A2011();
-		a1.setAge(21);
-		a1.setName("宋大向");
-		System.out.println(a1.getName()+"  "+a1.getAge());
-		A2012 a2=new A2012(25,"宋二向");
-		System.out.println(a2.getName()+"  "+a2.getAge());
-		
-
-	}
-
-}
-//下面是多态练习
-package f01;
 abstract class A221{
 	private String name;
 	private int age;
@@ -103,6 +45,9 @@ class A2211 extends A221{
 	public void sleep(){
 		System.out.println("好学生不睡懒觉");
 	}
+	public void 奖金(){
+		System.out.println("好学生有奖学金");
+	}
 	//下面调用的是父类的构造方法，使用了super
 	public A2211(String name,int age,String grand){
 		super(name,age,grand);
@@ -126,6 +71,9 @@ public class A22 {
 		System.out.println(a1.getName()+a1.getAge()+a1.getGrand());
 		a1.eat();//这里输出的是子类的方法
 		a1.sleep();//这里输出的是子类的方法
+		//奖金是子类特有的，所以要new个子类出来
+		A2211 a=new A2211("宋三向",22,"三年级");
+		a.奖金();
 		System.out.println("---------------");
 		//下面调用的时候还使用a1，很方便
 
