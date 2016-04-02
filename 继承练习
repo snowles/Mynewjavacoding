@@ -55,3 +55,90 @@ public class A20 {
 	}
 
 }
+//下面是多态练习
+package f01;
+abstract class A221{
+	private String name;
+	private int age;
+	private String grand;
+	public A221(){}
+	
+	public A221(String name,int age,String grand){
+		this.name=name;
+		this.age=age;
+		this.grand=grand;
+		//这里就相当于替代了get方法，要调用这个构造方法需要使用super
+	}
+	//下面是getset方法 因为是private修饰，只能调用方法
+	public String getName(){
+		return name;
+	}
+	public int getAge(){
+		return age;
+	}
+	public String getGrand(){
+		return grand;
+	}
+	public void setName(String name){
+		this.name=name;
+	}
+	public void setAge(int age){
+		this.age=age;
+	}
+	public void setGrand(String grand){
+		this.grand=grand;
+	}
+	//下面是方法，abstract方法修饰的是要子类强制执行的，必须要重写
+	public abstract void eat();
+	//下面是子类可执行不可执行的
+	public void sleep(){
+		System.out.println("学生都要睡觉");
+	}
+}
+//下面写两个子类
+class A2211 extends A221{
+	public void eat(){
+		System.out.println("好学生要吃饭");
+	}
+	public void sleep(){
+		System.out.println("好学生不睡懒觉");
+	}
+	//下面调用的是父类的构造方法，使用了super
+	public A2211(String name,int age,String grand){
+		super(name,age,grand);
+	}
+	}
+class A2212 extends A221{
+	public void eat(){
+		System.out.println("坏学生也要吃饭");
+	}
+	
+	//public void sleep() {
+		//System.out.println("坏学生爱睡懒觉");
+	//}
+
+}
+public class A22 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		A221 a1=new A2211("宋二向",21,"五年级");
+		System.out.println(a1.getName()+a1.getAge()+a1.getGrand());
+		a1.eat();//这里输出的是子类的方法
+		a1.sleep();//这里输出的是子类的方法
+		System.out.println("---------------");
+		//下面调用的时候还使用a1，很方便
+
+		a1=new A2212();
+		a1.setAge(20);
+		a1.setName("宋大向");
+		a1.setGrand("一年级");
+		System.out.println(a1.getName()+a1.getAge()+a1.getGrand());
+		a1.eat();//这里输出的是子类的方法
+		a1.sleep();//这里输出的是子类的方法
+		System.out.println("---------------");
+		
+
+	}
+
+}
