@@ -1,3 +1,80 @@
 /*
 *接口练习
 */
+package f01;
+//先写接口
+interface interA23{
+	//抽象方法里没有括号（即没有方法实体）
+	public abstract void jump();
+}
+ // 再写父类
+/*姓名,年龄
+吃饭();
+睡觉(){}
+*/
+abstract class  A231{
+	public A231(){}// 首先重写父类方法
+	private String name;
+	private int age;
+	//定义父类方法
+	public void sleep(){
+		System.out.println("睡觉觉");
+	}
+	public A231(String name,int age){
+		this.name=name;
+		this.age=age;
+	}
+	//定义getset方法
+	public String getName() {
+		return name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	//定义共有的方法，先定义抽象方法
+	public abstract void eat();	
+	}
+//再定义一个子类，继承父类
+class A2311 extends A231{
+	//子类里要先重写方法
+	public A2311(){};
+	public A2311(String name,int age){
+		super(name,age);
+	}
+	
+	//定义子类特有方法
+	public void eat(){
+		System.out.println("子类吃饭");
+	}
+}
+//定义特殊子类，调用接口
+class A23111 extends A2311 implements interA23{
+	//在特殊子类里也需要重写方法，定义接口内特殊方法
+	public A23111(){}
+	public A23111(String name,int age){
+		super(name,age);
+	}
+	public void jump(){
+		System.out.println("特殊子类跳高");
+	}
+}
+public class A23 {
+
+	public static void main(String[] args) {
+		// 测试特殊子类姓名 年龄 吃饭 睡觉 跳高
+		A23111 a=new A23111(); //这里不是多态，直接是在特殊子类里new特殊子类
+		a.setAge(20);
+		a.setName("宋大向");
+		System.out.println(a.getName()+"  "+a.getAge());
+		a.eat();//调用的子类吃饭
+		a.sleep();//调用的父类睡觉
+		a.jump();//调用接口里跳高
+	}
+
+}
