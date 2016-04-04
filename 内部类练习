@@ -50,7 +50,16 @@ class A281{
 }
 //匿名内部类
 class A282{
-	
+	public void A282(){
+		//这里使用的是多态
+		A2888 e=new A2888(){
+			public void showi(){
+				System.out.println("接口输出语句2");
+			}
+		};
+		//如果有第二个方法就e.两个
+		e.showi();
+	}
 }
 public class A28 {
 
@@ -73,6 +82,10 @@ public class A28 {
 		//下面调用的是成员内部类接口的调用方法
 		A281.A283 d=new A281().new A283();
 		d.show();
+		A282 e=new A282();
+		e.A282();
+	
+		
 
 	}
 
