@@ -1,0 +1,79 @@
+package f01;
+interface A2888{
+	abstract void showi();
+}
+class A281{
+	private int num=10;
+	private class A2811{
+		//成员位置的类，成员内部类
+		public void show1(){
+			System.out.println("输出语句");
+		}
+	}
+	public void getA2811(){
+		A2811 a=new A2811();
+		a.show1();//把A2811做成私有，可以在总类里新建一个方法来调用
+	}
+	
+	public static class A2823{
+		static int num1=10;
+		public static void show(){
+			System.out.println("静态输出语句");
+		}
+	}
+	
+	
+	
+	public void show(){
+		 class A2822{
+			 //要想访问下面这个num2就必须要用final修饰
+			 final int num2=100;
+			//方法内部的类，局部内部类
+			 public void show() {
+				System.out.println(num);
+				System.out.println(num2);
+			}			
+		}
+		 //在局部内部类所属的方法里new一个该类，在调用这个方法的时候就可以调用这个类
+		 A2822 i=new A2822();
+		 i.show();
+	}
+	class A283{
+		public void show(){
+			new A2888(){
+				public void showi(){
+					System.out.println("接口输出语句");
+				}
+			}.showi();
+		}
+	}
+}
+//匿名内部类
+class A282{
+	
+}
+public class A28 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//访问成员内部类的方法 
+		//A281.A2811 a=new A281().new A2811();
+		//a.show1();
+		A281 a=new A281();
+		//使用get方法调用私有化的成员内部类
+		a.getA2811();
+		//使用链式调用静态成员内部类
+		A281.A2823.show();
+		//使用静态方法new来调用静态成员内部类
+		A281.A2823 b=new A281.A2823();
+		b.show();
+		A281 c=new A281();
+		//在调用这个方法的时候就可以调用局部内部类 因为已经new过了
+		c.show();
+		//下面调用的是成员内部类接口的调用方法
+		A281.A283 d=new A281().new A283();
+		d.show();
+
+	}
+
+}
