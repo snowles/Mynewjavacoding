@@ -1,0 +1,67 @@
+package com.ning.d11;
+
+public class Demo implements Cloneable{
+	private int age;
+	private String name;
+	public Demo() {
+		super();
+		// 全自动生成太高级
+	}
+	public Demo(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	//自动重写to String
+	public String toString() {
+		return "Demo [age=" + age + ", name=" + name + "]";
+	}
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+
+	/*
+	 * 1. 使用==操作符检查“实参是否为指向对象的一个引用”。 
+       2. 使用instanceof操作符检查“实参是否为正确的类型”。 
+       3. 把实参转换到正确的类型。 
+       4. 对于该类中每一个“关键”域，检查实参中的域与当前对象中对应的域值是否匹配。
+*/
+	public boolean equals(Object obj) {  
+		 if(this == obj) {  
+		   return true;  
+		 }  
+		 if(null == obj) {  
+		   return false;  
+		 }  
+		 if(getClass() != obj.getClass()) {  
+		   return false;  
+		 }  
+		  
+		 Demo user = (Demo) obj;
+		 if(!name.equals(user.name)) {  
+		  return false;  
+		 }  
+		  return true;  
+		}  
+		 
+		 
+	
+
+
+	
+}
