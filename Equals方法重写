@@ -35,7 +35,7 @@ public class Demo implements Cloneable{
 		return super.clone();
 	}
 
-	/*
+	/*Equals方法也可以自动重写
 	 * 1. 使用==操作符检查“实参是否为指向对象的一个引用”。 
        2. 使用instanceof操作符检查“实参是否为正确的类型”。 
        3. 把实参转换到正确的类型。 
