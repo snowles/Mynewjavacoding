@@ -1,0 +1,65 @@
+package com.ning.d13;
+
+public class S7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int []a={2,4,8,6};
+		xuanze(a);
+
+		
+
+	}
+	public static void maopao(int[] chs){
+		//把输入的字符串转换成单字节数组
+				
+		//对数组进行冒泡排序
+		int temp;
+		for(int i=0;i<chs.length-1;i++){
+			//外面的循环控制次数
+			for(int j=0;j<=chs.length-1-i;j++){
+				//里面的循环控制比较
+				 //0小于或者大于后面那一个 就进行交换比较 这就是冒泡排序
+				if(chs[i]>chs[i+1]){
+					temp=chs[i];
+					chs[i]=chs[i+1];
+					chs[i+1]=temp;
+					
+				}
+			}
+		}
+		
+		for(int i=0;i<chs.length;i++){
+			System.out.println(chs[i]);
+		}
+		
+	}
+	public static void xuanze(int[] arr){
+		//冒泡是两个两个比 选择是1个和所有的数组比
+		//先写一个和后面比的
+//		for(int i=0;i<arr.length-1;i++){
+//			if(arr[0]>arr[i]){
+//				int temp=arr[0];
+//				arr[0]=arr[i];
+//				arr[i]=temp;
+//			}
+//		}
+		//同样，外循环控制次数，内循环控制一个一个比，有多少个数组就循环多少次
+		for(int j=0;j<arr.length;j++){
+			for(int i=0;i<arr.length-1;i++){
+				//外循环还有个用处就是控制下一轮比较的数
+				if(arr[j]>arr[i]){
+					int temp=arr[j];
+					arr[j]=arr[i];
+					arr[i]=temp;
+				}
+			}
+		}
+
+		for(int i=0;i<arr.length;i++){
+			System.out.println(arr[i]);
+		}
+	}
+	
+
+}
