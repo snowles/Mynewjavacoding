@@ -63,3 +63,42 @@ public class S7 {
 	
 
 }
+//新增二分查找
+package com.ning.d13;
+
+public class S8 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int []arr={2,4,6,8};
+		System.out.println(erfen(arr,2));
+		
+
+	}
+	//二分查找：新建功能，两个明确，输入一个数组，一个要查找的值
+	//
+	public static int erfen(int[] arr,int index){
+		int mid = 0;
+		int min;
+		int max;	
+		min=0;
+		max=arr.length-1;
+		mid=(min+max)/2;
+		while(arr[mid]!=index){		
+			
+			if(arr[mid]>index){
+				
+				max=mid-1;				
+			}else if(arr[mid]<index){
+				min=mid+1;
+				
+			}	
+			if(min>max){
+				return -1;
+			}
+			mid=(min+max)/2;
+		}
+		return mid;
+	}
+
+}
