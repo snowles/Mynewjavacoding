@@ -1,0 +1,18 @@
+package com.ning.d14;
+
+import java.util.Scanner;
+
+public class S2 {
+	public static void main(String[] args) {
+		//输入
+		Scanner sc=new Scanner(System.in);
+		System.out.println("属于邮箱");
+		String email=sc.nextLine();
+		//写功能 XXX@XXX.com.cn
+		String regex="\\w+@\\w+\\.\\w{2,3}";
+		boolean flag=email.matches(regex);
+		System.out.println(flag);
+		
+	}
+
+}
